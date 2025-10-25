@@ -1,0 +1,33 @@
+# Core dependencies for Sentinel Antivirus
+# Basic functionality works without these, but advanced features require them
+
+# YARA rules engine for advanced pattern matching
+yara-python
+
+# Machine learning for AI-based detection
+scikit-learn
+numpy
+pandas
+
+# Advanced file analysis
+pefile
+python-magic
+
+# Network analysis
+scapy
+
+# Performance optimization
+psutil
+
+# Optional: GUI enhancements
+Pillow
+
+# Optional: Database support
+#sqlite3
+
+# Optional: Cloud integration
+requests
+
+
+
+
