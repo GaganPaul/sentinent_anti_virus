@@ -166,31 +166,25 @@ class SentinelGUI:
     
     def create_header(self, parent):
         """Create the header section"""
-        header_frame = tk.Frame(parent, bg='#0a0a0a', height=120)
+        header_frame = tk.Frame(parent, bg='#0a0a0a')
         header_frame.pack(fill='x', pady=(0, 20))
-        header_frame.pack_propagate(False)
         
-        # Logo and title container
-        logo_frame = tk.Frame(header_frame, bg='#0a0a0a')
-        logo_frame.pack(expand=True, fill='both')
+        # Row: Title only (removed standalone S logo)
+        top_row = tk.Frame(header_frame, bg='#0a0a0a')
+        top_row.pack(fill='x', padx=10, pady=(8, 0))
         
-        # Logo (stylized S) - larger and more prominent
-        self.logo_label = tk.Label(logo_frame, text="S", 
-                                  bg='#0a0a0a', fg='#00ff88', 
-                                  font=('Segoe UI', 72, 'bold'))
-        self.logo_label.pack(pady=(10, 0))
+        # Title - reduced size
+        self.title_label = tk.Label(top_row, text="Sentinel",
+                                    bg='#0a0a0a', fg='#00ff88',
+                                    font=('Segoe UI', 20, 'bold'))
+        self.title_label.pack(side='left')
         
-        # Title - "Sentinel" text
-        self.title_label = tk.Label(logo_frame, text="Sentinel", 
-                                   bg='#0a0a0a', fg='#00ff88', 
-                                   font=('Segoe UI', 28, 'bold'))
-        self.title_label.pack(pady=(5, 0))
-        
-        # Tagline
-        self.tagline_label = tk.Label(logo_frame, text="A timeless watchman guarding your digital realm", 
-                                     bg='#0a0a0a', fg='#cccccc', 
-                                     font=('Segoe UI', 12, 'italic'))
-        self.tagline_label.pack(pady=(5, 10))
+        # Tagline below
+        self.tagline_label = tk.Label(header_frame,
+                                      text="A timeless watchman guarding your digital realm",
+                                      bg='#0a0a0a', fg='#cccccc',
+                                      font=('Segoe UI', 10, 'italic'))
+        self.tagline_label.pack(anchor='w', padx=10, pady=(4, 8))
     
     def create_left_panel(self, parent):
         """Create the left panel with scan options"""
@@ -201,8 +195,8 @@ class SentinelGUI:
         # Scan Options title
         options_title = tk.Label(left_frame, text="Scan Options", 
                                bg='#1a1a1a', fg='#00ff88', 
-                               font=('Segoe UI', 14, 'bold'))
-        options_title.pack(pady=(20, 15), padx=20, anchor='w')
+                               font=('Segoe UI', 13, 'bold'))
+        options_title.pack(pady=(10, 8), padx=20, anchor='w')
         
         # Scan option buttons
         scan_options = [
@@ -223,12 +217,12 @@ class SentinelGUI:
                            font=('Segoe UI', 10, 'bold'),
                            command=command,
                            relief='flat',
-                           padx=10, pady=8)
-            btn.pack(fill='x', padx=20, pady=3)
+                           padx=10, pady=6)
+            btn.pack(fill='x', padx=20, pady=2)
         
         # Action buttons
         action_frame = tk.Frame(left_frame, bg='#1a1a1a')
-        action_frame.pack(fill='x', padx=20, pady=(20, 0))
+        action_frame.pack(fill='x', padx=20, pady=(12, 0))
         
         self.start_scan_btn = tk.Button(action_frame, text="▶️ Start Scan", 
                                        bg='#ff4444', fg='#ffffff',
